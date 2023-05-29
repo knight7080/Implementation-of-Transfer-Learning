@@ -64,22 +64,11 @@ base_model=VGG19(
 for layer in base_model.layers:
   layer.trainable = False
   
-model=Sequential()
+model = Sequential()
 model.add(base_model)
 model.add(Flatten())
-model.add(Dense(800,activation=('relu')))
-model.add(Dense(650,activation=('relu')))
-model.add(Dropout(0.3))
-model.add(Dense(500,activation=('relu')))
-model.add(Dense(350,activation=('relu')))
-model.add(Dense(200,activation=('relu')))
-model.add(Dense(110,activation=('relu')))
-model.add(Dropout(0.4))
-model.add(Dense(98,activation=('relu')))
-model.add(Dense(40,activation=('relu')))
-model.add(Dense(10,activation=('softmax')))
-
-
+model.add(Dense(128,activation=("relu")))
+model.add(Dense(10,activation=("softmax")))
 model.summary()
 
 model.compile(optimizer=Adam(learning_rate=0.001), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
@@ -105,17 +94,16 @@ print(classification_report(y_test,x_test_predictions))
 
 ## OUTPUT:
 ### Training Loss, Validation Loss Vs Iteration Plot:
-![image](https://github.com/SanjayKumarAIML/Implementation-of-Transfer-Learning/assets/93427246/ed5fa7f9-82b3-4a96-974d-dbedebf48b0b)
+![image](https://github.com/knight7080/Implementation-of-Transfer-Learning/assets/88542035/029eb0f3-5344-440f-a3d9-7a1475e9f004)
 </br>
-![image](https://github.com/SanjayKumarAIML/Implementation-of-Transfer-Learning/assets/93427246/f9607dbb-83df-4799-87af-0ed45b62e551)
+![image](https://github.com/knight7080/Implementation-of-Transfer-Learning/assets/88542035/653361f9-8a85-489e-9a74-8367cbf9fd38)
 </br>
 ### Classification Report:
-![image](https://github.com/SanjayKumarAIML/Implementation-of-Transfer-Learning/assets/93427246/16307c30-83c9-4306-bbc9-e29a54240ed9)
+![image](https://github.com/knight7080/Implementation-of-Transfer-Learning/assets/88542035/95a55061-590e-4c29-916a-a0ee7c8603da)
 </br>
 
 ### Confusion Matrix:
-![image](https://github.com/SanjayKumarAIML/Implementation-of-Transfer-Learning/assets/93427246/3dde1f3e-4910-4f62-a2e5-8bef9f8bd581)
-
+![image](https://github.com/knight7080/Implementation-of-Transfer-Learning/assets/88542035/74f7fa91-5cf1-417e-ad44-037efb89acf2)
 </br>
 
 ## Conculsion:
